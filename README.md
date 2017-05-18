@@ -8,7 +8,8 @@ Framework-agnostic, self-validating Javascript domain entities
 * It is important to make sure that code in the various projects is kept in sync with the main schema. 
 * If a new field is added to an entity, the change should only happen in one place, and the entire codebase should be able to to work with it.
 * The prototypes have methods for construction, validation, marshalling to and from raw objects, getting token representations of larger objects, etc.
-* The entities should be defined in a separate project like this, and imported into other projects, for instance, by using git submodules.
+* Compound entities should always validate their children by using the child's isValid() method, rather than by checking child properties directly.
+* The entities should be defined in a separate project like this, for import into other projects, for instance, via git submodules.
 
 ## Files
 ### domain/
@@ -20,6 +21,3 @@ Framework-agnostic, self-validating Javascript domain entities
 ### spec/
 * **support/** contains Jasmine's configuration file
 * ***-spec.js** the Jasmine tests for the entities
-
-
-

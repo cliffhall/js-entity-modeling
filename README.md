@@ -4,10 +4,11 @@ Framework-agnostic, self-validating Javascript domain entities
 ## What's this?
 ### The entities that make up an application's domain model may be used by multiple projects, encompassing both client and server code.
 * The entities should be plain JavaScript and not tied to a particular framework.
-* This allows Node-based to work with the same entity code that Angular client uses.
+* This allows, for instance, Node-based server code to work with the same entities that an Angular client uses, and apply the same validation logic without duplication.
 * It is important to make sure that code in the various projects is kept in sync with the main schema. 
 * If a new field is added to an entity, the change should only happen in one place, and the entire codebase should be able to to work with it.
 * The prototypes have methods for construction, validation, marshalling to and from raw objects, getting token representations of larger objects, etc.
+* The entities should be defined in a separate project like this, and imported into other projects, for instance, by using git submodules.
 
 ## Files
 ### domain/

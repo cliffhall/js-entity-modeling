@@ -13,7 +13,7 @@ Framework-agnostic, self-validating Javascript domain entities
 
 ## Files
 ### domain/
-* **entity/ *.js** - All of the entities defined in the schema have corresponding prototype objects in the domain/entity folder.
+* **entity/*.js** - All of the entities defined in the schema have corresponding prototype objects in the domain/entity folder.
 * **domain.js** - Allows the entities to be grouped as a library and used in both Node and the browser.
 * **package.json** - Describes the module for Node.
 * **index.html** - Has a simple test that proves a compound object can be instantiated as expected in the browser. 

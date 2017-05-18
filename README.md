@@ -19,5 +19,5 @@ Framework-agnostic, self-validating Javascript domain entities
 * **index.html** - Has a simple test that proves a compound object can be instantiated as expected in the browser. 
 
 ### spec/
-* **support/** contains Jasmine's configuration file
-* ***-spec.js** the Jasmine tests for the entities
+* **support/** - Contains Jasmine's configuration file
+* ***-spec.js** - The Jasmine tests for the entities

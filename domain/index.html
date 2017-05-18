@@ -1,0 +1,26 @@
+<html>
+<head>
+    <script src="domain.js"></script>
+</head>
+<body onload="testUser()">
+<script>
+
+    /**
+     * Test that a User entity can be created.
+     * It depends on NameToken existing in the global namespace
+     */
+    function testUser() {
+        let user = new User(
+                '1234',
+                'test@example.com',
+                'Testy',
+                'Tester',
+                'TestMan'
+        );
+
+        alert(user.toString());
+    }
+</script>
+
+</body>
+</html>

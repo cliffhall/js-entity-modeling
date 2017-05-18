@@ -10,7 +10,15 @@ Framework-agnostic, self-validating Javascript Domain Entities
 * The prototypes have methods for construction, validation, marshalling to and from raw objects, getting token representations of larger objects, etc.
 
 # Files
-* All of the domain entities defined in the schema have corresponding prototype objects in the domain/entity folder
+## domain/
+* **entity/** All of the entities defined in the schema have corresponding prototype objects in the domain/entity folder.
 * **domain.js** allows the entities to be grouped as a library and used in both Node and the browser.
-* **package.json** describes the module for node.
+* **package.json** describes the module for Node.
 * **index.html** has a simple test that proves a compound object can be instantiated as expected in the browser. 
+
+## spec/
+* **support/** contains Jasmine's configuration file
+* ***-spec.js** the Jasmine tests for the entities
+
+
+

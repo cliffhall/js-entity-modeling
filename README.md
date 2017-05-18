@@ -21,3 +21,10 @@ Framework-agnostic, self-validating Javascript domain entities
 ### spec/
 * **support/** - Contains Jasmine's configuration file
 * ***-spec.js** - The Jasmine tests for the entities
+
+## TODO
+### Namespacing
+* Currently, the entities are defined either in Node's **global** or the browser's **window** object. 
+* The entities themselves must refer to the namespace when constructing new instances of themselves or of child entities, which is why (for the moment) they simply have no namespace.
+* We could hardcode the namespace, such that if our namespace is 'ns', the ns.User constructor calls ns.UserToken's constructor when making an instance.
+* Or, we could parameterize it, such that domain.js could have a namespace for the objects to be placed into and the namespace is passed into each of the entities, and they in turn use the reference to the namespace to reach entity constructors.

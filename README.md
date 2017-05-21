@@ -22,6 +22,12 @@ Framework-agnostic, self-validating Javascript domain entities
 * **support/** - Contains Jasmine's configuration file
 * ***-spec.js** - The Jasmine tests for the entities
 
+### schema/
+* **schema.json** - The [JSON4](https://tools.ietf.org/html/draft-zyp-json-schema-04) schema describing the entities.
+* **diagrams/*.png** - Diagrams of the schema's entity definitions. 
+* Schema and diagrams created with Altova's excellent [XMLSpy 2017](https://www.altova.com/xmlspy/json-schema-editor.html). 
+* On a side note, PLEASE, can't someone make a JSON Schema editor that doesn't cost a thousand bucks???
+
 ## TODO
 ### Namespacing
 * Currently, the entities are defined either in Node's **global** or the browser's **window** object. 

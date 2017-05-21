@@ -55,7 +55,6 @@ describe( "A valid User entity", () => {
         expect( user.name.last ).toBe( LAST );
         expect( user.name.display ).toBe( DISPLAY );
         expect( user.photo_url ).toBe( PHOTO_URL );
-        expect( user.budget ).toBe( BUDGET );
         expect( user.address ).not.toBeUndefined();
         expect( user.address.address ).toBe( ADDRESS.address );
         expect( user.address.city ).toBe( ADDRESS.city );
@@ -100,8 +99,7 @@ describe( "A valid User entity", () => {
                 last: LAST
             },
             photo_url: PHOTO_URL,
-            address: ADDRESS,
-            budget: BUDGET
+            address: ADDRESS
         };
 
         let user = User.fromObject( INPUT );
@@ -115,7 +113,6 @@ describe( "A valid User entity", () => {
         expect( user.name.first ).toBe( FIRST );
         expect( user.name.last ).toBe( LAST );
         expect( user.photo_url ).toBe( PHOTO_URL );
-        expect( user.budget ).toBe( BUDGET );
         expect( user.address ).not.toBeUndefined();
         expect( Object.getPrototypeOf( user.address ) ).toBe( Location.prototype );
         expect( user.address.isValid() ).toBe( true );
@@ -164,7 +161,6 @@ describe( "A valid User entity", () => {
         expect( user.name.last ).toBe( LAST );
         expect( user.name.display ).toBe( DISPLAY );
         expect( user.photo_url ).toBe( PHOTO_URL );
-        expect( user.budget ).toBe( BUDGET );
         expect( user.address ).not.toBeUndefined();
         expect( user.address.address ).toBe( ADDRESS.address );
         expect( user.address.city ).toBe( ADDRESS.city );

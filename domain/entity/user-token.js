@@ -29,7 +29,7 @@
          */
         UserToken.fromObject = function(o) {
             var name = new NameToken(o.name.display, o.name.first, o.name.last);
-            return new UserToken(o.uid, name, o.photo_url, o.budget);
+            return new UserToken(o.uid, name, o.photo_url);
         };
 
         /**

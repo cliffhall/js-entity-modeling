@@ -18,16 +18,14 @@
          * @param last
          * @param photo_url
          * @param address
-         * @param budget
          * @constructor
          */
-        function User(uid, email, display, first, last, photo_url, address, budget) {
+        function User(uid, email, display, first, last, photo_url, address) {
             this.uid = uid;
             this.email = email;
             this.name = new NameToken(display, first, last);
             this.photo_url = photo_url;
             this.address = address; /* Location instance */
-            this.budget = budget;
         };
 
         /**
@@ -37,7 +35,7 @@
          */
         User.fromObject = function(o) {
             var address = (o.address) ? new Location.fromObject(o.address) : null;
-            return new User(o.uid, o.email, o.name.display, o.name.first, o.name.last, o.photo_url, address, o.budget);
+            return new User(o.uid, o.email, o.name.display, o.name.first, o.name.last, o.photo_url, address);
         };
 
         /**
@@ -58,8 +56,7 @@
                 this.email,
                 this.name.toString(),
                 this.address ? this.address.toString() : "",
-                this.photo_url ? this.photo_url : "",
-                this.budget
+                this.photo_url ? this.photo_url : ""
             ].join(', ');
         };
 

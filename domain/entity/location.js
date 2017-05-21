@@ -74,11 +74,11 @@
             var retval = false;
             try {
                 retval = (
-                    typeof this.address !== 'undefined' &&
-                    typeof this.city !== 'undefined' &&
-                    typeof this.state !== 'undefined' &&
-                    typeof this.postcode !== 'undefined' &&
-                    typeof this.country !== 'undefined'
+                    typeof this.address !== 'undefined' && this.address != null &&
+                    typeof this.city !== 'undefined' && this.city != null &&
+                    typeof this.state !== 'undefined' && this.state != null &&
+                    typeof this.postcode !== 'undefined' && this.postcode != null &&
+                    typeof this.country !== 'undefined' && this.country != null
                 );
             } catch (e) {}
             return retval;

@@ -55,6 +55,7 @@
             var retval = false;
             try {
                 retval = (
+                    this.display !== null &&
                     typeof this.display !== 'undefined' &&
                     typeof this.display === 'string'
                 );

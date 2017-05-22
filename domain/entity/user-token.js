@@ -60,8 +60,8 @@
             var retval = false;
             try {
                 retval = (
-                    typeof this.uid !== 'undefined' && this.uid !== null && typeof this.uid !== 'undefined' &&
-                    typeof this.name  !== 'undefined' && this.name !== null && typeof this.name !== 'undefined' &&
+                    typeof this.uid !== 'undefined' && this.uid !== null &&
+                    typeof this.name  !== 'undefined' && this.name !== null &&
                     Object.getPrototypeOf(this.name) === NameToken.prototype &&
                     this.name.isValid()
                 );

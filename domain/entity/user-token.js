@@ -84,7 +84,8 @@
             try {
                 valid = (
                     typeof this.name  !== 'undefined' && this.name !== null &&
-                    Object.getPrototypeOf(this.name) === NameToken.prototype
+                    Object.getPrototypeOf(this.name) === NameToken.prototype &&
+                    this.name.isValid()
                 );
             } catch (e) {}
             return valid;

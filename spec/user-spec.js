@@ -240,6 +240,7 @@ describe( "A valid User entity", () => {
         expect( user1 ).not.toBeUndefined();
         expect( user1.email ).toBe( BAD_EMAIL );
         expect( user1.isValid() ).toBe( false )
+
         let user2 = new User(UID, GOOD_EMAIL, DISPLAY);
         expect( user2 ).not.toBeUndefined();
         expect( user2.email ).toBe( GOOD_EMAIL );

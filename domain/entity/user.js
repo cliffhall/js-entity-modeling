@@ -69,6 +69,37 @@
         };
 
         /**
+         * Is this User instance's uid field valid?
+         * @returns {boolean}
+         */
+        User.prototype.uidIsValid = function() {
+            return (typeof this.uid !== 'undefined' && this.uid !== null);
+        };
+
+        /**
+         * Is this User instance's email field valid?
+         * @returns {boolean}
+         */
+        User.prototype.emailIsValid = function() {
+            return (
+                typeof this.email !== 'undefined' && this.email !== null &&
+                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)
+            );
+        };
+
+        /**
+         * Is this User instance's name field valid?
+         * @returns {boolean}
+         */
+        User.prototype.nameIsValid = function() {
+            return (
+                typeof this.name !== 'undefined' && this.name !== null &&
+                Object.getPrototypeOf( this.name ) === NameToken.prototype &&
+                this.name.isValid()
+            );
+        };
+
+        /**
          * Is this User instance valid?
          * @returns {boolean}
          */
@@ -76,12 +107,9 @@
             var retval = false;
             try {
                 retval = (
-                    typeof this.uid !== 'undefined' && this.uid !== null &&
-                    typeof this.email !== 'undefined' && this.email !== null &&
-                    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email) &&
-                    typeof this.name !== 'undefined' && this.name !== null &&
-                    Object.getPrototypeOf( this.name ) === NameToken.prototype &&
-                    this.name.isValid()
+                    this.uidIsValid() &&
+                    this.emailIsValid() &&
+                    this.nameIsValid()
                 );
             } catch (e) {}
             return retval;

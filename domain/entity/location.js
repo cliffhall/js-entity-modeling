@@ -67,6 +67,46 @@
         };
 
         /**
+         * Is this Location instance's address field valid?
+         * @returns {boolean}
+         */
+        Location.prototype.addressIsValid = function() {
+            return (typeof this.address !== 'undefined' && this.address != null);
+        };
+
+        /**
+         * Is this Location instance's city field valid?
+         * @returns {boolean}
+         */
+        Location.prototype.cityIsValid = function() {
+            return (typeof this.city !== 'undefined' && this.city != null);
+        };
+
+        /**
+         * Is this Location instance's state field valid?
+         * @returns {boolean}
+         */
+        Location.prototype.stateIsValid = function() {
+            return (typeof this.state !== 'undefined' && this.state != null);
+        };
+
+        /**
+         * Is this Location instance's postcode field valid?
+         * @returns {boolean}
+         */
+        Location.prototype.postcodeIsValid = function() {
+            return (typeof this.postcode !== 'undefined' && this.postcode != null);
+        };
+
+        /**
+         * Is this Location instance's postcode field valid?
+         * @returns {boolean}
+         */
+        Location.prototype.countryIsValid = function() {
+            return (typeof this.country !== 'undefined' && this.country != null);
+        };
+
+        /**
          * Is this Location instance valid?
          * @returns {boolean}
          */
@@ -74,11 +114,11 @@
             var retval = false;
             try {
                 retval = (
-                    typeof this.address !== 'undefined' && this.address != null &&
-                    typeof this.city !== 'undefined' && this.city != null &&
-                    typeof this.state !== 'undefined' && this.state != null &&
-                    typeof this.postcode !== 'undefined' && this.postcode != null &&
-                    typeof this.country !== 'undefined' && this.country != null
+                    this.addressIsValid() &&
+                    this.cityIsValid() &&
+                    this.stateIsValid() &&
+                    this.postcodeIsValid() &&
+                    this.countryIsValid()
                 );
             } catch (e) {}
             return retval;

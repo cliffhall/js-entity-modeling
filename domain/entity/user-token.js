@@ -53,6 +53,33 @@
         };
 
         /**
+         * Get a UserToken instance referring to this User
+         * @returns {UserToken}
+         */
+        UserToken.prototype.getToken = function() {
+            return new UserToken( this.uid, this.name, this.photo_url );
+        };
+
+        /**
+         * Is this UserToken instance's uid field valid?
+         * @returns {boolean}
+         */
+        UserToken.prototype.uidIsValid = function() {
+            return (typeof this.uid !== 'undefined' && this.uid !== null);
+        };
+
+        /**
+         * Is this UserToken instance's name field valid?
+         * @returns {boolean}
+         */
+        UserToken.prototype.nameIsValid = function() {
+            return (
+                typeof this.name  !== 'undefined' && this.name !== null &&
+                Object.getPrototypeOf(this.name) === NameToken.prototype
+            );
+        };
+
+        /**
          * Is this UserToken instance valid?
          * @returns {boolean|*}
          */
@@ -60,10 +87,8 @@
             var retval = false;
             try {
                 retval = (
-                    typeof this.uid !== 'undefined' && this.uid !== null &&
-                    typeof this.name  !== 'undefined' && this.name !== null &&
-                    Object.getPrototypeOf(this.name) === NameToken.prototype &&
-                    this.name.isValid()
+                    this.uidIsValid() &&
+                    this.nameIsValid()
                 );
             } catch (e) {}
             return retval;

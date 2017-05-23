@@ -48,6 +48,18 @@
         };
 
         /**
+         * Is this NameToken instance's display field valid?
+         * @returns {boolean}
+         */
+        NameToken.prototype.displayIsValid = function() {
+            return (
+                this.display !== null &&
+                typeof this.display !== 'undefined' &&
+                typeof this.display === 'string'
+            );
+        };
+
+        /**
          * Is this NameToken instance valid?
          * @returns {boolean|*}
          */
@@ -55,9 +67,7 @@
             var retval = false;
             try {
                 retval = (
-                    this.display !== null &&
-                    typeof this.display !== 'undefined' &&
-                    typeof this.display === 'string'
+                    this.displayIsValid()
                 );
             } catch (e) {}
             return retval;

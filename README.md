@@ -1,7 +1,8 @@
 # js-entity-modeling
-###Framework-agnostic, self-validating domain model entities in Universal Javascript
+
 ## What's this?
-### The entities that make up an application's domain model may be used by multiple projects, encompassing both client and server code.
+### Framework-agnostic, self-validating domain model entities in Universal Javascript
+* The entities that make up an application's domain model may be used by multiple projects, encompassing both client and server code.
 * The entities should be plain JavaScript and not tied to a particular framework.
 * This allows, for instance, Node-based server code to work with the same entities that an Angular client uses, and apply the same validation logic without duplication.
 * It is important to make sure that code in the various projects is kept in sync with the main schema. 

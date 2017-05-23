@@ -233,7 +233,7 @@ describe( "A valid User entity", () => {
 
     });
 
-    it( "cannot be created with an invalid email address", () => {
+    it( "is not valid with an invalid email address", () => {
 
         const UID = '1234';
         const BAD_EMAIL = 'test';

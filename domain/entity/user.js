@@ -78,6 +78,7 @@
                 retval = (
                     typeof this.uid !== 'undefined' && this.uid !== null &&
                     typeof this.email !== 'undefined' && this.email !== null &&
+                    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email) &&
                     typeof this.name  !== 'undefined' && this.name !== null &&
                     Object.getPrototypeOf( this.name ) === NameToken.prototype &&
                     this.name.isValid()

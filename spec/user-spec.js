@@ -229,4 +229,23 @@ describe( "A valid User entity", () => {
 
     });
 
+    it( "cannot be created with an invalid email address", () => {
+
+        const UID = '1234';
+        const BAD_EMAIL = 'test';
+        const GOOD_EMAIL = 'test@example.com';
+        const DISPLAY = 'TestMan';
+
+        let user1 = new User(UID, BAD_EMAIL, DISPLAY);
+        expect( user1 ).not.toBeUndefined();
+        expect( user1.email ).toBe( BAD_EMAIL );
+        expect( user1.isValid() ).toBe( false )
+        let user2 = new User(UID, GOOD_EMAIL, DISPLAY);
+        expect( user2 ).not.toBeUndefined();
+        expect( user2.email ).toBe( GOOD_EMAIL );
+        expect( user2.isValid() ).toBe( true );
+
+    });
+
+
 });

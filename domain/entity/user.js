@@ -73,7 +73,14 @@
          * @returns {boolean}
          */
         User.prototype.uidIsValid = function() {
-            return (typeof this.uid !== 'undefined' && this.uid !== null);
+            var valid = false;
+            try {
+                valid = (
+                    typeof this.uid !== 'undefined' &&
+                    this.uid !== null
+                );
+            } catch (e) {}
+            return valid;
         };
 
         /**
@@ -81,10 +88,14 @@
          * @returns {boolean}
          */
         User.prototype.emailIsValid = function() {
-            return (
-                typeof this.email !== 'undefined' && this.email !== null &&
-                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)
-            );
+            var valid = false;
+            try {
+                valid = (
+                    typeof this.email !== 'undefined' && this.email !== null &&
+                    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)
+                );
+            } catch (e) {}
+            return valid;
         };
 
         /**
@@ -92,11 +103,15 @@
          * @returns {boolean}
          */
         User.prototype.nameIsValid = function() {
-            return (
-                typeof this.name !== 'undefined' && this.name !== null &&
-                Object.getPrototypeOf( this.name ) === NameToken.prototype &&
-                this.name.isValid()
-            );
+            var valid = false;
+            try {
+                valid = (
+                    typeof this.name !== 'undefined' && this.name !== null &&
+                    Object.getPrototypeOf( this.name ) === NameToken.prototype &&
+                    this.name.isValid()
+                );
+            } catch (e) {}
+            return valid;
         };
 
         /**
@@ -104,15 +119,11 @@
          * @returns {boolean}
          */
         User.prototype.isValid = function() {
-            var retval = false;
-            try {
-                retval = (
-                    this.uidIsValid() &&
-                    this.emailIsValid() &&
-                    this.nameIsValid()
-                );
-            } catch (e) {}
-            return retval;
+            return (
+                this.uidIsValid() &&
+                this.emailIsValid() &&
+                this.nameIsValid()
+            );
         };
 
         return User;

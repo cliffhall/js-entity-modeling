@@ -65,7 +65,14 @@
          * @returns {boolean}
          */
         UserToken.prototype.uidIsValid = function() {
-            return (typeof this.uid !== 'undefined' && this.uid !== null);
+            var valid = false;
+            try {
+                valid = (
+                    typeof this.uid !== 'undefined' &&
+                    this.uid !== null
+                );
+            } catch (e) {}
+            return valid;
         };
 
         /**
@@ -73,10 +80,14 @@
          * @returns {boolean}
          */
         UserToken.prototype.nameIsValid = function() {
-            return (
-                typeof this.name  !== 'undefined' && this.name !== null &&
-                Object.getPrototypeOf(this.name) === NameToken.prototype
-            );
+            var valid = false;
+            try {
+                valid = (
+                    typeof this.name  !== 'undefined' && this.name !== null &&
+                    Object.getPrototypeOf(this.name) === NameToken.prototype
+                );
+            } catch (e) {}
+            return valid;
         };
 
         /**
@@ -84,14 +95,10 @@
          * @returns {boolean|*}
          */
         UserToken.prototype.isValid = function() {
-            var retval = false;
-            try {
-                retval = (
-                    this.uidIsValid() &&
-                    this.nameIsValid()
-                );
-            } catch (e) {}
-            return retval;
+            return (
+                this.uidIsValid() &&
+                this.nameIsValid()
+            );
         };
 
         return UserToken;

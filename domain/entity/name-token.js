@@ -52,11 +52,15 @@
          * @returns {boolean}
          */
         NameToken.prototype.displayIsValid = function() {
-            return (
-                this.display !== null &&
-                typeof this.display !== 'undefined' &&
-                typeof this.display === 'string'
-            );
+            var valid = false;
+            try {
+                valid = (
+                    this.display !== null &&
+                    typeof this.display !== 'undefined' &&
+                    typeof this.display === 'string'
+                );
+            } catch (e) {}
+            return valid;
         };
 
         /**
@@ -64,13 +68,9 @@
          * @returns {boolean|*}
          */
         NameToken.prototype.isValid = function() {
-            var retval = false;
-            try {
-                retval = (
-                    this.displayIsValid()
-                );
-            } catch (e) {}
-            return retval;
+            return (
+                this.displayIsValid()
+            );
         };
 
         return NameToken;

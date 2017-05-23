@@ -71,7 +71,14 @@
          * @returns {boolean}
          */
         Location.prototype.addressIsValid = function() {
-            return (typeof this.address !== 'undefined' && this.address != null);
+            var valid = false;
+            try {
+                valid = (
+                    typeof this.address !== 'undefined' &&
+                    this.address != null
+                );
+            } catch (e) {}
+            return valid;
         };
 
         /**
@@ -79,7 +86,14 @@
          * @returns {boolean}
          */
         Location.prototype.cityIsValid = function() {
-            return (typeof this.city !== 'undefined' && this.city != null);
+            var valid = false;
+            try {
+                valid = (
+                    typeof this.city !== 'undefined' &&
+                    this.city != null
+                );
+            } catch (e) {}
+            return valid;
         };
 
         /**
@@ -87,7 +101,14 @@
          * @returns {boolean}
          */
         Location.prototype.stateIsValid = function() {
-            return (typeof this.state !== 'undefined' && this.state != null);
+            var valid = false;
+            try {
+                valid = (
+                    typeof this.state !== 'undefined' &&
+                    this.state != null
+                );
+            } catch (e) {}
+            return valid;
         };
 
         /**
@@ -95,7 +116,14 @@
          * @returns {boolean}
          */
         Location.prototype.postcodeIsValid = function() {
-            return (typeof this.postcode !== 'undefined' && this.postcode != null);
+            var valid = false;
+            try {
+                valid = (
+                    typeof this.postcode !== 'undefined' &&
+                    this.postcode != null
+                );
+            } catch (e) {}
+            return valid;
         };
 
         /**
@@ -103,7 +131,14 @@
          * @returns {boolean}
          */
         Location.prototype.countryIsValid = function() {
-            return (typeof this.country !== 'undefined' && this.country != null);
+            var valid = false;
+            try {
+                valid = (
+                    typeof this.country !== 'undefined' &&
+                    this.country != null
+                );
+            } catch (e) {}
+            return valid;
         };
 
         /**
@@ -111,17 +146,13 @@
          * @returns {boolean}
          */
         Location.prototype.isValid = function() {
-            var retval = false;
-            try {
-                retval = (
-                    this.addressIsValid() &&
-                    this.cityIsValid() &&
-                    this.stateIsValid() &&
-                    this.postcodeIsValid() &&
-                    this.countryIsValid()
-                );
-            } catch (e) {}
-            return retval;
+            return (
+                this.addressIsValid() &&
+                this.cityIsValid() &&
+                this.stateIsValid() &&
+                this.postcodeIsValid() &&
+                this.countryIsValid()
+            );
         };
 
         return Location;

@@ -1,5 +1,9 @@
-"use strict";
-
+/**
+ * js-entity-modeling
+ * Jasmine Test for Schema Entity: user
+ *
+ * @author Cliff Hall <cliff@futurescale.com>
+ */
 require('../domain');
 
 describe( "A valid User entity", () => {

@@ -1,6 +1,5 @@
 # js-entity-modeling
-Framework-agnostic, self-validating Javascript domain entities
-
+###Framework-agnostic, self-validating domain model entities in Universal Javascript
 ## What's this?
 ### The entities that make up an application's domain model may be used by multiple projects, encompassing both client and server code.
 * The entities should be plain JavaScript and not tied to a particular framework.
@@ -10,6 +9,8 @@ Framework-agnostic, self-validating Javascript domain entities
 * The prototypes have methods for construction, validation, marshalling to and from raw objects, getting token representations of larger objects, etc.
 * Compound entities should always validate their children by using the child's isValid() method, rather than by checking child properties directly.
 * The entities should be defined in a separate project like this, for import into other projects, for instance, via git submodules.
+* Read the [article](http://cliffordhall.com/2017/05/modeling-domain-entities/). 
+
 
 ## Files
 ### domain/

@@ -9,27 +9,24 @@
 (function() {
 
     const NODE = (typeof module !== 'undefined' && typeof global !== 'undefined');
+    const path = './entity/';
+    const entities = [
+        {name: 'Location', file:'location'},
+        {name: 'NameToken', file:'name-token'},
+        {name: 'User', file:'user'},
+        {name: 'UserToken', file:'user-token'}
+    ];
 
     if (NODE) { // In Node, add the constructors to global
 
-        global.Location = require('./entity/location');
-        global.NameToken = require('./entity/name-token');
-        global.User = require('./entity/user');
-        global.UserToken = require('./entity/user-token');
+        entities.forEach( (entity) => global[entity.name] = require(path + entity.file) );
 
     } else if (document) {  // In browser, load files with script tags in document.head
 
-        var domain = [
-            './entity/location.js',
-            './entity/name-token.js',
-            './entity/user.js',
-            './entity/user-token.js'
-        ];
-
-        domain.forEach( (filename) => {
+        entities.forEach( (entity) => {
             var script = document.createElement('script');
             script.type = 'text/javascript';
-            script.src = filename;
+            script.src = path + entity.file + ".js";
             document.getElementsByTagName('head')[0].appendChild(script);
         });
 

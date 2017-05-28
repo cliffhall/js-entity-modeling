@@ -53,14 +53,6 @@
         };
 
         /**
-         * Get a UserToken instance referring to this User
-         * @returns {UserToken}
-         */
-        UserToken.prototype.getToken = function() {
-            return new UserToken( this.uid, this.name, this.photo_url );
-        };
-
-        /**
          * Is this UserToken instance's uid field valid?
          * @returns {boolean}
          */
